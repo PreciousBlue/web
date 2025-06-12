@@ -1,0 +1,31 @@
+name: Deploy auto
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/cache@v4
+        id: client-pnpm-cache
+        with:
+          path: "**/node_modules"
+          key: client-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12
+      - name: install
+        run: |
+          pnpm install
+      - name: build
+        run: |
+          pnpm build
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
