@@ -1,4 +1,4 @@
-name: Deploy auto
+name: Deploy manually
 
 on: workflow_dispatch
 
@@ -7,19 +7,25 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
+          node-version: 20
+      - uses: actions/cache@v2
+        id: client-pnpm-cache
+        with:
+          path: "node_modules"
+          key: client-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.6
       - name: install
         run: |
           pnpm install
       - name: build
         run: |
           pnpm build
-      - uses: peaceiris/actions-gh-pages@v4
+      - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
