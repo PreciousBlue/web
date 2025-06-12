@@ -15,10 +15,10 @@ jobs:
           cache: 'pnpm'
       - name: install
         run: |
-          pnpm install
+          yarn install
       - name: build
         run: |
-          pnpm build
+          yarn build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
