@@ -8,17 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: actions/cache@v4
-        id: client-pnpm-cache
-        with:
-          path: "**/node_modules"
-          key: client-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.12
+          cache: 'pnpm'
       - name: install
         run: |
           pnpm install
