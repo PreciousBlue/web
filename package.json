@@ -1,6 +1,7 @@
 {
   "name": "preciousblue-web",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
