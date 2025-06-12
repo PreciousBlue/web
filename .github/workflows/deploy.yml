@@ -12,13 +12,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'yarn'
       - name: install
         run: |
-          yarn install
+          npm install
       - name: build
         run: |
-          yarn build
+          npm build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
