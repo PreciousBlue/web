@@ -68,6 +68,18 @@ img {
     animation: fade-out-white 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
+.youtube {
+    width: 100vw;
+    height: 100vh;
+}
+
+.youtube iframe {
+    display : block;
+    border-radius: 20px;
+    padding-top: 25vh;
+    margin: auto;
+}
+
 @keyframes fade-out-white {
     from {
         opacity: 1;
