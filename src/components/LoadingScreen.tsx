@@ -137,7 +137,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoaded }) => {
             本ゲームはブルーアーカイブ (NEXON Games, Yostar) の二次創作ゲームです。
           </p>
           <p style={{ marginBottom: '12px' }}>
-            本作は個人が非営利の趣味の範囲で制作したものであり、公式とは一切関係がありません。
+            本作は非営利かつ趣味の範囲で制作したものであり、公式とは一切関係がありません。
           </p>
           <p style={{ color: '#666666', fontSize: '0.9em' }}>
             万が一、公式のガイドライン変更や公式からの削除要請があった場合は、予告なく本作の公開を停止いたします。
