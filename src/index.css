@@ -1,6 +1,135 @@
-body {
-    margin: 0;
-    display: flex;
-    place-items: center;
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  --bg-overlay: rgba(255, 255, 255, 0.96);
+  --bg-dark-overlay: rgba(10, 10, 10, 0.75);
+
+  --text-primary: #0a0a0a;
+  --text-secondary: #495057;
+  --text-muted: #868e96;
+  --text-dim: #ced4da;
+  --text-white: #ffffff;
+
+  --border-light: #e9ecef;
+  --border-medium: #dee2e6;
+  --border-strong: #0a0a0a;
+
+  --accent-blue: #3282FD;
+  --accent-blue-hover: #1c6feb;
+  --accent-blue-subtle: rgba(50, 130, 253, 0.08);
+
+  --font-en: 'Montserrat', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-main: 'Montserrat', 'Noto Sans JP', sans-serif;
+
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --section-padding: clamp(80px, 10vw, 140px);
+  --container-max-width: 1200px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-main);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-snappy);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.section-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.section-header {
+  margin-bottom: clamp(40px, 6vw, 70px);
+  text-align: center;
+}
+
+.section-tag {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-blue);
+  margin: 16px auto 0;
+}
